@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVF Exam Notes</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+  .container { max-width: 900px; margin: auto; padding: 24px 16px; }
+  h1 { text-align: center; color: #7c3aed; font-size: 1.6rem; margin-bottom: 4px; }
+  .subtitle { text-align: center; color: #94a3b8; font-size: 0.85rem; margin-bottom: 24px; }
+
+  .module { background: #1e2130; border-radius: 12px; margin-bottom: 20px; overflow: hidden; border: 1px solid #2d3148; }
+  .mod-header { padding: 12px 18px; font-weight: 700; font-size: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+  .mod-body { padding: 16px 18px; display: none; }
+  .mod-body.open { display: block; }
+
+  .m1 .mod-header { background: linear-gradient(90deg, #7c3aed22, #7c3aed44); color: #a78bfa; border-left: 4px solid #7c3aed; }
+  .m2 .mod-header { background: linear-gradient(90deg, #059669, #05966922); color: #6ee7b7; border-left: 4px solid #059669; }
+  .m3 .mod-header { background: linear-gradient(90deg, #b45309, #b4530922); color: #fcd34d; border-left: 4px solid #b45309; }
+  .m4 .mod-header { background: linear-gradient(90deg, #dc2626, #dc262622); color: #fca5a5; border-left: 4px solid #dc2626; }
+  .m5 .mod-header { background: linear-gradient(90deg, #0891b2, #0891b222); color: #67e8f9; border-left: 4px solid #0891b2; }
+  .mc .mod-header { background: linear-gradient(90deg, #db2777, #db277722); color: #f9a8d4; border-left: 4px solid #db2777; }
+  .mq .mod-header { background: linear-gradient(90deg, #16a34a, #16a34a22); color: #86efac; border-left: 4px solid #16a34a; }
+
+  h3 { color: #cbd5e1; font-size: 0.92rem; margin: 14px 0 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  ul { padding-left: 18px; }
+  li { margin-bottom: 5px; font-size: 0.88rem; color: #cbd5e1; }
+  li strong { color: #f1f5f9; }
+
+  .tag { display: inline-block; background: #312e81; color: #a5b4fc; border-radius: 4px; padding: 1px 7px; font-size: 0.75rem; margin: 2px; }
+  .tag.green { background: #064e3b; color: #6ee7b7; }
+  .tag.red { background: #450a0a; color: #fca5a5; }
+  .tag.yellow { background: #451a03; color: #fcd34d; }
+
+  /* Flowcharts */
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 2px; margin: 12px 0; }
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .box { background: #2d3148; border: 1px solid #4338ca; border-radius: 8px; padding: 6px 14px; font-size: 0.82rem; text-align: center; color: #e2e8f0; }
+  .box.hi { background: #3730a3; border-color: #818cf8; color: #e0e7ff; font-weight: 700; }
+  .box.green { background: #064e3b; border-color: #059669; color: #6ee7b7; }
+  .box.red { background: #450a0a; border-color: #dc2626; color: #fca5a5; }
+  .box.yellow { background: #451a03; border-color: #d97706; color: #fcd34d; }
+  .arrow { color: #64748b; font-size: 1.2rem; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; font-size: 0.83rem; margin: 10px 0; }
+  th { background: #2d3148; color: #a5b4fc; padding: 7px 10px; text-align: left; }
+  td { padding: 6px 10px; border-bottom: 1px solid #2d3148; color: #cbd5e1; }
+  tr:hover td { background: #1a1d2e; }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+  .card { background: #12151f; border-radius: 8px; padding: 10px 14px; border: 1px solid #2d3148; }
+  .card-title { font-size: 0.78rem; font-weight: 700; margin-bottom: 6px; }
+  .card-title.green { color: #6ee7b7; }
+  .card-title.red { color: #fca5a5; }
+
+  .formula { background: #1a103d; border: 1px dashed #7c3aed; border-radius: 8px; padding: 8px 14px; font-size: 0.85rem; color: #c4b5fd; margin: 8px 0; text-align: center; font-weight: 600; }
+
+  .tip { background: #0c2a1a; border-left: 3px solid #22c55e; border-radius: 0 8px 8px 0; padding: 8px 12px; font-size: 0.82rem; color: #86efac; margin: 10px 0; }
+  .warn { background: #2a1500; border-left: 3px solid #f59e0b; border-radius: 0 8px 8px 0; padding: 8px 12px; font-size: 0.82rem; color: #fcd34d; margin: 10px 0; }
+
+  @media(max-width: 500px) { .grid2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📘 Study of Human Values — HVF</h1>
+  <p class="subtitle">NIT Raipur · Exam-Ready Notes · Click any module to expand</p>
+
+  <!-- MODULE 1 -->
+  <div class="module m1">
+    <div class="mod-header" onclick="toggle(this)">
+      MODULE 1 — Introduction to Value Education
+      <span>▼</span>
+    </div>
+    <div class="mod-body open">
+      <h3>🎯 What is Education?</h3>
+      <ul>
+        <li><strong>NOT</strong> just book-learning or diverse knowledge</li>
+        <li><strong>Real Education</strong> = Training that brings <em>direction & purpose of will</em> under control → makes it fruitful</li>
+        <li><strong>Aim</strong> = Manifest inner perfection in our lives</li>
+      </ul>
+
+      <h3>📊 Two Types of Education</h3>
+      <table>
+        <tr><th>Type</th><th>Question</th><th>Focus</th></tr>
+        <tr><td><strong>Value Education</strong></td><td>What to do?</td><td>Understanding role in larger order</td></tr>
+        <tr><td><strong>Skill Education</strong></td><td>How to do?</td><td>Technical ability & execution</td></tr>
+      </table>
+      <div class="formula">Holistic Education = Value Education + Skill Education</div>
+      <div class="tip">⚡ Priority: Value Ed (What to do) comes FIRST → then Skill Ed (How to do)</div>
+
+      <h3>🌐 4 Levels of Human Existence</h3>
+      <div class="flow">
+        <div class="flow-row">
+          <div class="box hi">Self (I)</div>
+          <div class="arrow">→</div>
+          <div class="box">Family</div>
+          <div class="arrow">→</div>
+          <div class="box">Society</div>
+          <div class="arrow">→</div>
+          <div class="box">Nature/Existence</div>
+        </div>
+      </div>
+
+      <h3>✅ 5 Characteristics of Value Education</h3>
+      <ul>
+        <li><strong>Universal</strong> — Same for all humans, all times, all places</li>
+        <li><strong>Rational</strong> — Based on reasoning, NOT dogma or blind belief</li>
+        <li><strong>Natural & Verifiable</strong> — Naturally acceptable + experientially verifiable</li>
+        <li><strong>All-Encompassing</strong> — Covers thought, behavior, work, all 4 levels</li>
+        <li><strong>Leading to Harmony</strong> — Promotes harmony within self, others, nature</li>
+      </ul>
+      <div class="warn">⚠️ "Competitive" is NOT a characteristic — it's the OPPOSITE of what Value Education promotes</div>
+
+      <h3>💡 Value & Conduct</h3>
+      <table>
+        <tr><th>Value</th><th>Conduct (expression)</th></tr>
+        <tr><td>Discipline</td><td>Fulfilling duties on time</td></tr>
+        <tr><td>Respect</td><td>Polite speech</td></tr>
+        <tr><td>Honesty</td><td>Truthful communication</td></tr>
+        <tr><td>Responsibility</td><td>Following rules & ethical norms</td></tr>
+      </table>
+      <div class="formula">World View → Values → Conduct</div>
+
+      <h3>❓ Why People Become Unethical</h3>
+      <div>
+        <span class="tag red">Fear / Pressure</span>
+        <span class="tag red">Self-Interest / Greed</span>
+        <span class="tag red">Poor Moral Education</span>
+        <span class="tag red">Cognitive Dissonance</span>
+        <span class="tag red">Cultural Corruption</span>
+        <span class="tag red">Desensitization</span>
+      </div>
+
+      <h3>🏗️ How Character is Built</h3>
+      <div>
+        <span class="tag">Family Influence</span>
+        <span class="tag">Cultural Beliefs</span>
+        <span class="tag">Education</span>
+        <span class="tag">Life Experiences</span>
+        <span class="tag">Role Models</span>
+        <span class="tag">Social Environment</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module m2">
+    <div class="mod-header" onclick="toggle(this)">
+      MODULE 2 — Basic Human Aspirations & Self-Exploration
+      <span>▼</span>
+    </div>
+    <div class="mod-body">
+      <h3>🎯 Basic Human Aspirations (Universal)</h3>
+      <ul>
+        <li>✅ <strong>Happiness (Sukh)</strong> — to BE always happy</li>
+        <li>✅ <strong>Prosperity (Samridhi)</strong> — to have enough</li>
+        <li>✅ <strong>Continuity</strong> — of both happiness & prosperity</li>
+      </ul>
+      <div class="tip">All other goals (money, fame, job) are just STEPS/PATHS to this basic aspiration — not the goal itself!</div>
+
+      <h3>⛓️ The 4-Step Effort Chain</h3>
+      <div class="flow">
+        <div class="box yellow">Step 4 → BE Happy & Prosperous ← BASIC ASPIRATION</div>
+        <div class="arrow">↑</div>
+        <div class="box">Step 3 → GET / DO something (money, fame, respect)</div>
+        <div class="arrow">↑</div>
+        <div class="box">Step 2 → BECOME something (Engineer, Doctor, IAS)</div>
+        <div class="arrow">↑</div>
+        <div class="box">Step 1 → Present EFFORT (studying, working)</div>
+      </div>
+      <div class="grid2" style="margin-top:10px">
+        <div class="card">
+          <div class="card-title red">❌ Wrong Way: 1→2→3→4</div>
+          <ul><li>No clarity of goal</li><li>Direction keeps changing</li><li>Mix of happiness/unhappiness</li></ul>
+        </div>
+        <div class="card">
+          <div class="card-title green">✅ Right Way: 4→3→2→1</div>
+          <ul><li>Goal is clear first</li><li>Plan steps backward</li><li>Definite direction</li></ul>
+        </div>
+      </div>
+
+      <h3>🔍 Self-Exploration</h3>
+      <ul>
+        <li>Inward reflective process to find what is genuinely valuable</li>
+        <li>Dialogue between <strong>"What I AM"</strong> and <strong>"What I REALLY WANT TO BE"</strong></li>
+        <li>Uses <strong>Natural Acceptance</strong> as the internal compass</li>
+      </ul>
+
+      <h3>🔄 Process of Self-Exploration</h3>
+      <div class="flow">
+        <div class="box">Proposal (idea/statement)</div>
+        <div class="arrow">↓</div>
+        <div class="box hi">Verify via Natural Acceptance</div>
+        <div class="arrow">↓</div>
+        <div class="box">Experiential Validation → Live accordingly</div>
+        <div class="arrow">↓</div>
+        <div class="box green">RIGHT UNDERSTANDING → Mutual Happiness & Prosperity</div>
+      </div>
+
+      <h3>🧠 Natural Acceptance</h3>
+      <ul>
+        <li><strong>Innate</strong> — Part of every human being</li>
+        <li><strong>Invariant</strong> — Not corrupted by conditioning, culture, or pressure</li>
+        <li><strong>Universal</strong> — Same for all humans</li>
+        <li><strong>Definite</strong> — Not subjective or changing</li>
+      </ul>
+
+      <h3>📉 The Gap Problem</h3>
+      <div class="flow">
+        <div class="flow-row">
+          <div class="box green">Aspiration = Happy & Prosperous</div>
+          <div class="arrow">≠</div>
+          <div class="box red">Current State = Sometimes happy, sometimes not</div>
+        </div>
+      </div>
+      <p style="font-size:0.85rem;color:#94a3b8;margin-top:6px">🔑 <em>Gap exists because we assume: Physical Facility alone = Happiness</em></p>
+
+      <h3>🔺 3 Requirements to Fulfil Aspirations</h3>
+      <div class="flow">
+        <div class="box hi">① Right Understanding — Highest Priority</div>
+        <div class="arrow">↓</div>
+        <div class="box">② Relationships with Human Beings</div>
+        <div class="arrow">↓</div>
+        <div class="box">③ Physical Facility — Lowest Priority</div>
+      </div>
+      <div class="warn">⚠️ Most people do it in REVERSE (3→2→1) → leads to disharmony & unhappiness</div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module m3">
+    <div class="mod-header" onclick="toggle(this)">
+      MODULE 3 — Happiness & Prosperity
+      <span>▼</span>
+    </div>
+    <div class="mod-body">
+      <div class="formula">Happiness = Being in a state of HARMONY<br>Unhappiness = Being forced into DISHARMONY/Contradiction</div>
+
+      <h3>❌ Wrong Notions of Happiness</h3>
+      <ul>
+        <li>Owning/accumulating physical things</li>
+        <li>Pleasure from senses (taste, sound, touch)</li>
+        <li>Seeking attention/appreciation from others</li>
+        <li>Excitement (temporary escape from unhappiness)</li>
+      </ul>
+      <div class="warn">⚠️ These lead to: Overeating, Addiction, Violence, Depression, Suicide — NOT happiness!</div>
+
+      <h3>⚡ Excitement vs Happiness</h3>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title red">Excitement (Animal Consciousness)</div>
+          <ul><li>Temporary</li><li>External stimulus needed</li><li>Leads to addiction</li><li>Escape from unhappiness</li></ul>
+        </div>
+        <div class="card">
+          <div class="card-title green">Happiness (Human Consciousness)</div>
+          <ul><li>Continuous & sustained</li><li>From inner harmony</li><li>No dependence</li><li>Mutual fulfilment</li></ul>
+        </div>
+      </div>
+
+      <h3>🧩 Happiness vs Unhappiness Comparison</h3>
+      <table>
+        <tr><th>Happiness ✅</th><th>Unhappiness ❌</th></tr>
+        <tr><td>Clarity within self</td><td>Confusion within self</td></tr>
+        <tr><td>Harmony with family</td><td>Conflict with family</td></tr>
+        <tr><td>Harmony with society</td><td>Opposition with society</td></tr>
+        <tr><td>Harmony with nature</td><td>Struggle for survival</td></tr>
+      </table>
+
+      <h3>♾️ Continuity of Happiness = Harmony at ALL 4 Levels</h3>
+      <div class="flow">
+        <div class="box hi">1. Harmony within Human Being (Self)</div>
+        <div class="arrow">↓</div>
+        <div class="box">2. Harmony in Family</div>
+        <div class="arrow">↓</div>
+        <div class="box">3. Harmony in Society</div>
+        <div class="arrow">↓</div>
+        <div class="box green">4. Harmony in Nature/Existence</div>
+      </div>
+      <div class="tip">💡 Even ONE level in disharmony breaks the continuity of happiness!</div>
+
+      <h3>🐄 Physical Facility — Necessary but NOT Sufficient</h3>
+      <ul>
+        <li><strong>Animal:</strong> Physical facility = necessary AND sufficient (cow gets grass → satisfied)</li>
+        <li><strong>Human:</strong> Physical facility = necessary BUT NOT sufficient</li>
+        <li>Once humans get food, they immediately think of 100 other things</li>
+        <li>Humans also need: <span class="tag green">Relationships</span> <span class="tag">Right Understanding</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module m4">
+    <div class="mod-header" onclick="toggle(this)">
+      MODULE 4 — Animal Consciousness vs Human Consciousness
+      <span>▼</span>
+    </div>
+    <div class="mod-body">
+      <h3>🔄 The Two States</h3>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title red">Animal Consciousness ❌</div>
+          <div class="flow" style="margin:6px 0">
+            <div class="box red" style="font-size:0.75rem">? Right Understanding</div>
+            <div class="box red" style="font-size:0.75rem">? Relationships</div>
+            <div class="box red" style="font-size:0.75rem">① Physical Facility ← TOP</div>
+          </div>
+          <ul><li>Unhappy</li><li>Exploits others</li><li>Disharmony</li></ul>
+        </div>
+        <div class="card">
+          <div class="card-title green">Human Consciousness ✅</div>
+          <div class="flow" style="margin:6px 0">
+            <div class="box green" style="font-size:0.75rem">① Right Understanding ← TOP</div>
+            <div class="box green" style="font-size:0.75rem">② Relationships</div>
+            <div class="box green" style="font-size:0.75rem">③ Physical Facility</div>
+          </div>
+          <ul><li>Mutual Happiness</li><li>Mutual Prosperity</li><li>Harmony</li></ul>
+        </div>
+      </div>
+
+      <div class="formula">Development = Transformation from Animal Consciousness → Human Consciousness</div>
+
+      <h3>🌿 4 Orders of Nature (Module 4 content)</h3>
+      <ul>
+        <li><strong>Material Order</strong> — soil, minerals, metals</li>
+        <li><strong>Plant/Bio Order</strong> — plants, trees</li>
+        <li><strong>Animal Order</strong> — animals, birds</li>
+        <li><strong>Human Order</strong> — human beings</li>
+      </ul>
+      <div class="tip">Every unit in nature participates in a mutually fulfilling manner — except humans without right understanding!</div>
+      <ul>
+        <li><strong>Recyclability</strong> — Nature reuses everything</li>
+        <li><strong>Self-regulation</strong> — Nature maintains its own balance</li>
+        <li><strong>Existence = Co-existence</strong> — All units interact mutually in all-pervasive space</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MODULE 5 -->
+  <div class="module m5">
+    <div class="mod-header" onclick="toggle(this)">
+      MODULE 5 — Professional Ethics & Holistic Development
+      <span>▼</span>
+    </div>
+    <div class="mod-body">
+      <div class="formula">Holistic Education = Value Education (What to do) + Skill Education (How to do)</div>
+
+      <h3>⚙️ Skills Without Values</h3>
+      <div class="flow">
+        <div class="flow-row">
+          <div class="box green">Right Values + Skills</div>
+          <div class="arrow">→</div>
+          <div class="box green">Right Use</div>
+        </div>
+        <div class="flow-row">
+          <div class="box red">Wrong Values + Skills</div>
+          <div class="arrow">→</div>
+          <div class="box red">Misuse (faster & more pervasive with technology!)</div>
+        </div>
+      </div>
+
+      <h3>🎓 Outcomes of Holistic Education</h3>
+      <ul>
+        <li>Full human potential realized</li>
+        <li>Equitable & just society</li>
+        <li>National development</li>
+        <li>Humane world view</li>
+        <li>Skills guided by values → right conduct</li>
+      </ul>
+
+      <h3>🔗 World View → Values → Conduct Chain</h3>
+      <div class="flow">
+        <div class="box">World View / Perspective</div>
+        <div class="arrow">↓</div>
+        <div class="box">Values (what I believe is important)</div>
+        <div class="arrow">↓</div>
+        <div class="box">Conduct (observable actions)</div>
+      </div>
+      <div class="tip">💡 Change the World View first → Values change → Conduct automatically follows. Rules without changing world view = ineffective!</div>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES -->
+  <div class="module mc">
+    <div class="mod-header" onclick="toggle(this)">
+      CASE STUDIES — Quick Reference
+      <span>▼</span>
+    </div>
+    <div class="mod-body">
+      <h3>📦 Case 1: Defective Medicine (Pharma Company)</h3>
+      <ul>
+        <li><strong>Values:</strong> Responsibility, Public Welfare, Business Ethics</li>
+        <li><strong>Action:</strong> ✅ RECALL medicines — public safety > profit</li>
+        <li><strong>Learning:</strong> Social responsibility = protecting public interest over financial gain</li>
+      </ul>
+
+      <h3>🚦 Case 2: Traffic Constable (Law vs Saving Life)</h3>
+      <ul>
+        <li><strong>Ethical Issue:</strong> Act is <em>legally wrong</em> but <em>morally right</em></li>
+        <li><strong>Mens-rea:</strong> Intention = noble (saving life)</li>
+        <li><strong>Action:</strong> Allow to hospital → strict warning after → lawlessness must NOT become norm</li>
+        <li><strong>Learning:</strong> Moral intention matters, but legality must also be respected — balance both</li>
+      </ul>
+
+      <h3>🏥 Case 3: HIV Positive Employee</h3>
+      <ul>
+        <li><strong>Values violated:</strong> Dignity, Empathy, Rationality, Justice</li>
+        <li><strong>Steps:</strong> Don't suspend → Awareness session → Invoke legal protection (HIV Act 2017) → Mediate → Continue work</li>
+        <li><strong>Learning:</strong> Conduct driven by fear rather than reason leads to injustice</li>
+      </ul>
+
+      <h3>🎓 Case 4: Ananya's Dilemma (Self-Exploration)</h3>
+      <ul>
+        <li><strong>Issue:</strong> Job offer — aspiration or social expectation?</li>
+        <li><strong>Process:</strong> Identify true aspiration → Natural Acceptance test → Verify → Plan 4→3→2→1</li>
+        <li><strong>Key:</strong> Aspiration (चाहना) = from within | Expectation (अपेक्षा) = from others</li>
+      </ul>
+
+      <h3>💼 Case 5: Jatin's 80-Hour Work Week</h3>
+      <ul>
+        <li><strong>Problem:</strong> High salary but anxious, poor relationships, no contentment</li>
+        <li><strong>Mistake:</strong> Prioritized Physical Facility (3) over Relationships (2) and Right Understanding (1)</li>
+        <li><strong>= Living with Animal Consciousness</strong></li>
+        <li><strong>Solution:</strong> Reorder → Right Understanding → Relationships → Physical Facility</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUICK FORMULAS -->
+  <div class="module mq">
+    <div class="mod-header" onclick="toggle(this)">
+      ⚡ QUICK FORMULAS & KEY DEFINITIONS
+      <span>▼</span>
+    </div>
+    <div class="mod-body">
+      <div class="formula">Value Education = Universal + Rational + Natural & Verifiable + All-Encompassing + Leading to Harmony</div>
+      <div class="formula">Happiness = Harmony (at all 4 levels of being)</div>
+      <div class="formula">Human Consciousness = Right Understanding(1) + Relationships(2) + Physical Facility(3)</div>
+      <div class="formula">Holistic Development = Values + Skills (in that priority order)</div>
+      <div class="formula">Self-Exploration = Dialogue between "What I AM" and "What I REALLY WANT TO BE"</div>
+      <div class="formula">Development = Transformation from Animal Consciousness → Human Consciousness</div>
+
+      <h3>📖 Important Definitions</h3>
+      <table>
+        <tr><th>Term</th><th>Definition</th></tr>
+        <tr><td><strong>Value</strong></td><td>What is valuable = one's participation in the larger order</td></tr>
+        <tr><td><strong>Conduct</strong></td><td>Practical expression of values through actions (internal + external)</td></tr>
+        <tr><td><strong>Self-Exploration</strong></td><td>Inward process to find what is genuinely valuable through Natural Acceptance</td></tr>
+        <tr><td><strong>Natural Acceptance</strong></td><td>Innate, invariant, definite sense of what is right — same for all humans</td></tr>
+        <tr><td><strong>Human Consciousness</strong></td><td>Living with Right Understanding → Relationships → Physical Facility in priority</td></tr>
+        <tr><td><strong>Animal Consciousness</strong></td><td>Treating physical facility as top priority → leads to disharmony</td></tr>
+        <tr><td><strong>Happiness</strong></td><td>State of harmony within self, family, society, and nature</td></tr>
+        <tr><td><strong>Prosperity</strong></td><td>Having more than needed physical facilities + feeling of sufficiency</td></tr>
+        <tr><td><strong>Holistic Education</strong></td><td>Value Education + Skill Education combined</td></tr>
+        <tr><td><strong>Character</strong></td><td>Ethical traits guiding behavior especially when no one is watching</td></tr>
+      </table>
+
+      <div class="tip">🎯 <strong>Exam Tip:</strong> Always link answers to the 3 requirements (Right Understanding → Relationship → Physical Facility) and the 4 levels (Individual → Family → Society → Nature). This shows deep understanding!</div>
+    </div>
+  </div>
+
+</div>
+<script>
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const arrow = header.querySelector('span');
+    body.classList.toggle('open');
+    arrow.textContent = body.classList.contains('open') ? '▲' : '▼';
+  }
+</script>
+</body>
+</html>
